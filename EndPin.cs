@@ -71,5 +71,25 @@ namespace EndRectangleLibrary
            
             return rectangleCords;
         }
+
+        public double[,] createRectangle2()
+        {
+            //x,y
+            double[,] rectangleCords = new double[4, 4];
+
+            rectangleCords[0, 0] = _X2;
+            rectangleCords[0, 1] = _Y2;
+
+            rectangleCords[1, 0] = _X2 + _width;
+            rectangleCords[1, 1] = _Y2;
+
+            rectangleCords[2, 0] = _X2 + _width;
+            rectangleCords[2, 1] = _Y2 + _height;
+
+            rectangleCords[3, 0] = _X2;
+            rectangleCords[3, 1] = _Y2 + _height;
+
+            return rectangleCords;
+        }
     }
 }

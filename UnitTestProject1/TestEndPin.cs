@@ -14,11 +14,11 @@ namespace UnitTestProject1
         public void TestWidthCalculation()
         {
             double inputWidth = 10;
-            double clearance = 10;
+            double clearance = 1;
             double endMill = .125;
 
             double testResult = endRectangle.calculateWidth(inputWidth, clearance, endMill);
-            Assert.AreEqual(20.125,testResult);
+            Assert.AreEqual(11.125,testResult);
         }
 
         [TestMethod]
@@ -45,11 +45,11 @@ namespace UnitTestProject1
         {
             double width =20.125;
             double origin = 0.0;
-            double clearance = 10;
+            double clearance = 1;
             double endMill = .125;
 
             double testResult = endRectangle.calulateX2(width, origin, clearance, endMill);
-            Assert.AreEqual(30.25, testResult);
+            Assert.AreEqual(21.25, testResult);
         }
 
         [TestMethod]
@@ -85,14 +85,14 @@ namespace UnitTestProject1
             expectedRectangleCords[0, 0] =  -.625;
             expectedRectangleCords[0, 1] =  -.625;
             
-            expectedRectangleCords[1, 0] =  19.5;
+            expectedRectangleCords[1, 0] =  10.5;
             expectedRectangleCords[1, 1] =  -.625;
 
-            expectedRectangleCords[2, 0] =  19.5;
-            expectedRectangleCords[2, 1] =  19.625;
+            expectedRectangleCords[2, 0] =  10.5;
+            expectedRectangleCords[2, 1] =  10.625;
 
             expectedRectangleCords[3, 0] =  -.625;
-            expectedRectangleCords[3, 1] =  19.625;
+            expectedRectangleCords[3, 1] =  10.625;
 
             double[,] realRectangleCords = new double[3, 1];
             realRectangleCords = endRectangle.createRectangle1();
@@ -110,6 +110,37 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestSecondtRectangleCreation()
         {
+            TestHeightCalculation();
+            TestWidthCalculation();
+            TestX1Calculation();
+            TestX2Calculation();
+            TestY1Calculation();
+            TestY2Calculation();
+
+            //x,y  x->  y-v
+            double[,] expectedRectangleCords = new double[4, 4];
+            expectedRectangleCords[0, 0] = 21.25;
+            expectedRectangleCords[0, 1] = -.625;
+
+            expectedRectangleCords[1, 0] = 32.375;
+            expectedRectangleCords[1, 1] = -.625;
+
+            expectedRectangleCords[2, 0] = 32.375;
+            expectedRectangleCords[2, 1] = 10.625;
+
+            expectedRectangleCords[3, 0] = 21.25;
+            expectedRectangleCords[3, 1] = 10.625;
+
+            double[,] realRectangleCords = new double[3, 1];
+            realRectangleCords = endRectangle.createRectangle2();
+
+            for (int i = 0; i < expectedRectangleCords.GetLength(0); i++)
+            {
+                for (int j = 0; i < expectedRectangleCords.GetLength(1); i++)
+                {
+                    Assert.AreEqual(expectedRectangleCords[i, j], realRectangleCords[i, j]);
+                }
+            }
         }
     }
 }
