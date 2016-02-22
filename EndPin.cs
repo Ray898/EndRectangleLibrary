@@ -28,9 +28,9 @@ namespace EndRectangleLibrary
             return _height;
         }
 
-        public double calulateX1(double origin)
+        public double calulateX1(double origin, double difference)
         {
-            _X1 = origin - .625;
+            _X1 = origin - difference;
             return _X1;
         }
 
@@ -40,9 +40,9 @@ namespace EndRectangleLibrary
             return _X2;
         }
 
-        public double calulateY1(double origin)
+        public double calulateY1(double origin, double difference)
         {
-            _Y1 = origin - .625;
+            _Y1 = origin - difference;
             return _Y1;
         }
 

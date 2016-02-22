@@ -35,8 +35,8 @@ namespace UnitTestProject1
         public void TestX1Calculation()
         {
             double origin = 0.0;
-
-            double testResult = endRectangle.calulateX1(origin);
+            double difference = .625;
+            double testResult = endRectangle.calulateX1(origin, difference);
             Assert.AreEqual(-.625, testResult);
         }
 
@@ -56,8 +56,9 @@ namespace UnitTestProject1
         public void TestY1Calculation()
         {
             double origin = 0.0;
+            double difference = .625;
 
-            double testResult = endRectangle.calulateY1(origin);
+            double testResult = endRectangle.calulateY1(origin, difference);
             Assert.AreEqual(-.625, testResult);
         }
 
